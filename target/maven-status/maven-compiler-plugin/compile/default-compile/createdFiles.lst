@@ -1,0 +1,10 @@
+com\example\dbqueries\DbQueriesApiApplication.class
+com\example\dbqueries\repository\CategoryRepository.class
+com\example\dbqueries\entity\Order.class
+com\example\dbqueries\entity\Book.class
+com\example\dbqueries\entity\OrderStatus.class
+com\example\dbqueries\repository\OrderItemRepository.class
+com\example\dbqueries\entity\Category.class
+com\example\dbqueries\repository\OrderRepository.class
+com\example\dbqueries\entity\OrderItem.class
+com\example\dbqueries\repository\BookRepository.class
