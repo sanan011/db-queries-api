@@ -6,6 +6,8 @@ import com.example.dbqueries.repository.BookRepository;
 import com.example.dbqueries.service.BookService;
 import com.example.dbqueries.specification.BookSpecification;
 import com.example.dbqueries.entity.Book;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
@@ -17,17 +19,20 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/books")
 @RequiredArgsConstructor
+@Tag(name = "Books", description = "Book catalog and search endpoints")
 public class BookController {
 
     private final BookService bookService;
     private final BookRepository bookRepository;
 
     @PostMapping
+    @Operation(summary = "Create a book", description = "Adds a new book to the catalog")
     public BookResponse createBook(@RequestBody BookRequest request) {
         return BookResponse.from(bookService.createBook(request));
     }
 
     @GetMapping("/search")
+    @Operation(summary = "Search books", description = "Filters books by title, author, price range, and category")
     public List<BookResponse> searchBooks(
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String author,
